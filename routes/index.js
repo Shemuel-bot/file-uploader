@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/User.js');
+const folderController = require('../controllers/Folder.js');
 
 /* GET home page. */
 router.get('/', function(req, res){
@@ -19,10 +20,8 @@ router.get('/sign-up', function(req, res) {
 
 router.post('/sign-up', userController.sign_up_post);
 
-router.get('/home', function(req, res){
-  res.render('home', {
-    title: 'home',
-  });
-});
+router.get('/home', folderController.home);
+
+
 
 module.exports = router;

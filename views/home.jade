@@ -1,5 +1,11 @@
 extends layout
 
+
+mixin list
+    -for(let i = 0; i < folders.length; i++)
+        a(href="") #{folders[i].name}
+
+
 block content
   h1= title
   a(href="/create/folder") 
