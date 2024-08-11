@@ -1,0 +1,13 @@
+extends layout
+
+
+mixin list
+    -for(let i = 0; i < files.length; i++)
+        a(href=`${files[i].url}`) #{files[i].name}
+
+
+block content
+  h1= title
+  +list
+  a(href=`/create/file/${id}`) 
+    button new file

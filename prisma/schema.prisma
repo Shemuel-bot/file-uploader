@@ -17,20 +17,17 @@ model User {
   id    Int @id @default(autoincrement())
   name  String @unique
   password   String 
-  folder Folder[]
 }
 
 model Folder {
   id    Int @id @default(autoincrement())
   name  String
-  files File[]
-  user  User @relation(fields: [folderId], references: [id])
-  folderId Int 
+  userId  String?
 }
 
 model File {
   id    Int @id @default(autoincrement())
+  name  String
   url   String
-  folder    Folder @relation(fields: [fileId], references: [id])
-  fileId    Int 
+  folderId  String?
 }
